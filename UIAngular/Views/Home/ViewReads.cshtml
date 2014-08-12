@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<h2>Index</h2>
+
+
+<table class="table" >
+    <tr>
+        <th>
+            SerialNumber
+        </th>
+        <th>
+            ReadTimeStamp
+        </th>
+        <th>
+            Value
+        </th>
+        <th>
+            delete
+        </th>
+    </tr>
+
+    
+    <tr ng-repeat="read in reads" >
+        <td>
+            {{read.SerialNumber}}
+        </td>
+        <td>
+            {{read.ReadTimeStamp}}
+        </td>
+        <td>
+            {{read.Value}}
+        </td>
+        <td>
+            <input type="button" ng-click="deleteRead(read.id)" class="btn btn-default" />
+
+        </td>
+    </tr>
+
+
+</table>

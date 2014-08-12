@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+     
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+
+    <script src="~/Scripts/jquery.signalR-2.0.2.js"></script>
+    <script src="~/signalr/hubs"></script>
+
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/angular-route.js"></script>
+    <script src="~/Scripts/angular-resource.js"></script>
+    <script src="~/Scripts/ui-bootstrap-0.10.0.js"></script>
+    <script src="~/Scripts/ui-bootstrap-tpls-0.10.0.js"></script>
+    <script src="~/Scripts/angular-animate.js"></script>
+    <script src="~/Scripts/application/application.js"></script>
+    <script src="~/Scripts/application/controllers/viewReads.js"></script>
+    <script src="~/Scripts/application/controllers/createRead.js"></script>
+    <script src="~/Scripts/application/controllers/mainView.js"></script>
+
+    <script src="~/Scripts/application/services/ReadsService.js"></script>
+    <script src="~/Scripts/application/services/SignalRHubService.js"></script>
+  
+
+</head>
+<body data-ng-app="main" ng-controller="mainViewController">
+    <!-- Header \ Sidebar Content-->
+    <tabset>
+        <tab heading="View reads" select="tabSelected(0)"></tab>
+
+        <tab heading="Create reads" select="tabSelected(1)"></tab>
+
+
+    </tabset>
+
+    <span ng-show="isViewLoading">
+        loading the view...
+    </span>
+
+    <div class="container" ng-view ng-show="!isViewLoading">        
+        @RenderBody()
+    </div>
+
+    @RenderSection("scripts", required: false)
+
+
+</body>
+</html>

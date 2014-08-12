@@ -1,0 +1,57 @@
+﻿
+
+@{
+    ViewBag.Title = "CreateRead";
+    Layout = null;
+}
+
+<h2>Create new read</h2>
+
+
+    
+    <div class="form-horizontal" >
+   
+    <hr />
+    @Html.ValidationSummary(true)
+
+    <div class="form-group">
+        <span class="control-label col-md-2">SerialNumber</span>
+        
+        <div class="col-md-10">
+            <input type="text" ng-model="newRead.SerialNumber">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <span class="control-label col-md-2">ReadTimeStamp</span>
+        
+        <div class="col-md-10">
+            <input type="text" ng-model="newRead.ReadTimeStamp" datepicker-popup="{{format}}">
+
+           
+        </div>
+    </div>
+
+    <div class="form-group">
+        <span class = "control-label col-md-2" >Value</span>
+        <div class="col-md-10">
+            <input type="text" ng-model="newRead.Value">
+         </div>
+       
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="button" ng-click="saveNewRead()" class="btn btn-default" value="insert new read" />
+        </div>
+        
+    </div>
+        <div class="form-group">            
+            <progressbar class="progress-striped active" value="serviceRequestProgress.progress">{{serviceRequestProgress.text}}</progressbar>
+        </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
